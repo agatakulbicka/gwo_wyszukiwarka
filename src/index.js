@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux'
-import fetchBooksData from "./actions/actions";
 import rootReducer from './reducers/reducers';
 import './index.css';
 import App from './App';
@@ -19,7 +18,5 @@ const store = createStore(
     )
 );
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App store={store}/>, document.getElementById('root'));
 registerServiceWorker();
-
-store.dispatch(fetchBooksData('matematyka'));
