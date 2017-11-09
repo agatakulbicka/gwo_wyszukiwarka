@@ -6,17 +6,33 @@ import fetchBooksData from "../actions/actions";
 
 class SearchBoxContainer extends Component {
 
+    constructor() {
+        super();
+
+        this.renderBooksData = this.renderBooksData.bind(this);
+    }
+
     componentDidMount() {
-        //this.props.store.dispatch(fetchBooksData("biologia"));
         this.props.fetchBooksData2("matematyka");
-        console.log("dcssssssssssssssssssssssssss",this.props.fetchBooksData2("plastyka"));
+    }
+
+    renderBooksData(books) {
+        return (books.map((book, index) => (
+            <div className={`single-book-${index}`}>{
+                Object.keys(book).map((row, rowIndex) =>
+                    Array.isArray(book[row]) ?
+                        this.renderBooksData(book[row]) :
+                        <p className={`single-book-${index}-${rowIndex}`}>{book[row]}</p>
+                )
+            }
+            </div>
+        )))
     }
 
     render() {
-
-        console.log("PROPSACZE", this.props);
+        const {booksData} = this.props;
         return (
-            <div>00000000000000000000</div>
+            this.renderBooksData(booksData)
         )
     }
 
