@@ -12,13 +12,8 @@ class SearchBoxComponent extends Component {
     }
 
     getResults(event) {
-        const {fetchBooksData} = this.props;
-        const {value} = this.state;
         event.preventDefault();
-        setTimeout(function(){
-           fetchBooksData(value)
-        },
-            900)
+        this.props.fetchBooksData(encodeURIComponent(this.state.value))
     }
 
     onChange = (event) => this.setState({ value: event.target.value });
