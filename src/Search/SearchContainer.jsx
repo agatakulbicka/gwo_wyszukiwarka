@@ -3,7 +3,6 @@ import React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import fetchBooksData from "../actions/actions";
-import "../styles/styles.scss";
 import FilteredListComponent from "./FilteredListComponent";
 import SearchBoxComponent from "./SearchBoxComponent";
 import {Loader} from "../Loader/index";
@@ -19,7 +18,6 @@ function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
 }
 
 function renderMainContent(isLoaderVisible, booksData) {
-    console.log(isLoaderVisible, "LLLLLLLLLLLLLLLLLLLLLLL");
     return isLoaderVisible ? <Loader/> :
         <FilteredListComponent
             booksData={booksData}/>;

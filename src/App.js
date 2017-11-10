@@ -1,7 +1,6 @@
-// import PropTypes from "prop-types";
 import React, {Component} from "react";
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import "./styles/styles.scss"
 import Search from "./Search/SearchContainer";
 
