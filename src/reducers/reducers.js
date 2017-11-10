@@ -31,7 +31,6 @@ function isFetchingBooksData(state = false, action) {
     }
 }
 
-
 const rootReducer = combineReducers({
     booksData,
     isFetchingBooksData,
