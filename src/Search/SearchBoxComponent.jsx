@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, {Component} from "react";
+import {Col} from "react-bootstrap";
 
 class SearchBoxComponent extends Component {
 
@@ -25,8 +26,8 @@ class SearchBoxComponent extends Component {
 
     render() {
         return (
-            <div className="searchbox-component">
-                <form onSubmit={this.getResults}>
+            <Col xs={2} xsOffset={8} className="searchbox-component">
+                    <form onSubmit={this.getResults}>
                     <label htmlFor="search-input">
                         Podaj szukaną frazę...
                     </label>
@@ -39,7 +40,7 @@ class SearchBoxComponent extends Component {
                     />
                     <input type="submit" value="Submit" />
                 </form>
-            </div>
+            </Col>
         );
     }
 }

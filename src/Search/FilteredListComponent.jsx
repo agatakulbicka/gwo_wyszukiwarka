@@ -1,8 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
+import {Col} from "react-bootstrap";
 
 function FilteredListComponent({booksData}){
-    return renderBooksData(booksData)
+    return (
+        <Col xs={2} xsOffset={8} className="show-grid filter-list">
+            {renderBooksData(booksData)}
+        </Col>
+    )
 }
 
 function renderBooksData(books) {
