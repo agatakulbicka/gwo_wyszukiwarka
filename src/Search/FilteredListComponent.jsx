@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
 import {Col} from "react-bootstrap";
+import SingleBook from "../SingleBook/SingleBook";
 
 function FilteredListComponent({booksData}){
     return (
-        <Col xs={2} xsOffset={8} className="show-grid filter-list">
+        <Col md={12} className="show-grid filter-list">
+            {renderBooksList(booksData)}
             {renderBooksData(booksData)}
         </Col>
     )
@@ -21,6 +23,15 @@ function renderBooksData(books) {
         }
         </div>
     )))
+}
+
+function renderBooksList(books){
+    return books.map((book, index) =>
+        <SingleBook
+            key={index}
+            bookData={book}
+            baseClassName="selected-book"
+        />)
 }
 
 FilteredListComponent.propTypes = {

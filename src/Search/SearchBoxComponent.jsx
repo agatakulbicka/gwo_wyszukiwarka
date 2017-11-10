@@ -26,7 +26,7 @@ class SearchBoxComponent extends Component {
 
     render() {
         return (
-            <Col xs={2} xsOffset={8} className="searchbox-component">
+            <Col md={12} className="searchbox-component">
                     <form onSubmit={this.getResults}>
                     <label htmlFor="search-input">
                         Podaj szukaną frazę...

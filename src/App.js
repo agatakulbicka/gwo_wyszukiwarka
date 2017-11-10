@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 import './App.scss';
 import "./styles/styles.scss"
 import Search from "./Search/SearchContainer";

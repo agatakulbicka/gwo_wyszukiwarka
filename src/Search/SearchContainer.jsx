@@ -10,7 +10,7 @@ import {Grid, Row} from "react-bootstrap";
 
 function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
     return (
-        <Grid className="show-grid search-container">
+        <Grid className="search-container">
             <Row><SearchBoxComponent fetchBooksData={fetchBooksData}/></Row>
             <Row>{renderMainContent(isFetchingBooksData, booksData)}</Row>
 

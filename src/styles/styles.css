@@ -21,6 +21,18 @@
 .search-container {
   min-height: 400px;
   height: 300px;
-  background-color: peachpuff; }
+  background-color: peachpuff;
+  width: 96%; }
+
+.selected-book__content {
+  text-align: left; }
+  .selected-book__content-rows {
+    display: flex; }
+    .selected-book__content-rows .description {
+      font-weight: bolder;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 50%; }
 
 /*# sourceMappingURL=styles.css.map */
