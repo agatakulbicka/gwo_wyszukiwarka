@@ -11,8 +11,13 @@ class SearchBoxComponent extends Component {
     }
 
     getResults(event) {
+        const {fetchBooksData} = this.props;
+        const {value} = this.state;
         event.preventDefault();
-        this.props.fetchBooksData(this.state.value)
+        setTimeout(function(){
+           fetchBooksData(value)
+        },
+            900)
     }
 
     onChange = (event) => this.setState({ value: event.target.value });
@@ -20,7 +25,7 @@ class SearchBoxComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="searchbox-component">
                 <form onSubmit={this.getResults}>
                     <label htmlFor="search-input">
                         Podaj szukaną frazę...

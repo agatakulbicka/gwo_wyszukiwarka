@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import {FETCHING_BOOKS_DATA, REQUEST_BOOKS_DATA, RECEIVE_BOOKS_DATA} from "../constants/constants"
+import { REQUEST_BOOKS_DATA, RECEIVE_BOOKS_DATA} from "../constants/constants"
 
 
 function selectedPhrase(state = {}, action) {
@@ -21,13 +21,13 @@ function booksData(state = [], action) {
     }
 }
 
-function isFetchingBooksData(state = false, action) {
+function isFetchingBooksData(state, action) {
     switch(action.type) {
-        case FETCHING_BOOKS_DATA:
+        case REQUEST_BOOKS_DATA:
             return true;
         default:
         case RECEIVE_BOOKS_DATA:
-            return state
+            return false
     }
 }
 
