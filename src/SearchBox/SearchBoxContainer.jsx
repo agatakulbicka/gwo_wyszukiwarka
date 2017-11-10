@@ -18,11 +18,11 @@ class SearchBoxContainer extends Component {
 
     renderBooksData(books) {
         return (books.map((book, index) => (
-            <div className={`single-book-${index}`}>{
+            <div className={`div-${index}`}>{
                 Object.keys(book).map((row, rowIndex) =>
                     Array.isArray(book[row]) ?
                         this.renderBooksData(book[row]) :
-                        <p className={`single-book-${index}-${rowIndex}`}>{book[row]}</p>
+                        <p className={`${row}-${index}-${rowIndex}`}>{book[row]}</p>
                 )
             }
             </div>
