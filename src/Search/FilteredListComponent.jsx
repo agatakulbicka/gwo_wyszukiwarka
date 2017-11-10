@@ -7,11 +7,11 @@ function FilteredListComponent({booksData}){
 
 function renderBooksData(books) {
     return (books.map((book, index) => (
-        <div className={`div-${index}`}>{
+        <div key={index}>{
             Object.keys(book).map((row, rowIndex) =>
                 Array.isArray(book[row]) ?
                     renderBooksData(book[row]) :
-                    <p className={`${row}-${index}-${rowIndex}`}>{book[row]}</p>
+                    <p key={`${row}-${index}-${rowIndex}`}>{book[row]}</p>
             )
         }
         </div>
