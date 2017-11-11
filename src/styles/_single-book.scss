@@ -1,4 +1,4 @@
-@import "constants";
+@import "shared";
 
 .book-box {
   border-radius: 10px;
@@ -53,20 +53,8 @@
   }
 
   &__button {
-
     button {
-      background: none repeat scroll 0 0 $first-color;
-      border: medium none;
-      color: white;
-      cursor: pointer;
-      margin-bottom: 26px;
-      padding: 8px;
-      border-radius: 5px;
-      font-size: 1.2em;
-    }
-
-    button:hover {
-      background: lighten($first-color, 20%) none repeat scroll 0 0;
+      @include custom-button();
     }
   }
 }

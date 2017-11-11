@@ -16,3 +16,19 @@ $third-color: #f3f3f3;
     @media only screen and (min-width: $break-large) { @content; }
   }
 }
+
+
+@mixin custom-button() {
+  background: none repeat scroll 0 0 $first-color;
+  border: medium none;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 26px;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 1.2em;
+
+  &:hover {
+    background: lighten($first-color, 20%) none repeat scroll 0 0;
+  }
+}

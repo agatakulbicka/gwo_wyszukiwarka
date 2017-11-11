@@ -21,20 +21,30 @@ class SearchBoxComponent extends Component {
 
 
     render() {
+        const baseClassName = "search-box";
+
         return (
-            <Col md={12} className="searchbox-component">
+            <Col md={12} className={baseClassName}>
                 <form onSubmit={this.getResults}>
-                    <label htmlFor="search-input">
-                        {SEARCH_BOOK_LABEL}
-                    </label>
-                    <input
-                        id="search-input"
-                        type="text"
-                        value={this.state.value}
-                        onChange={this.onChange}
-                        placeholder={SEARCH_BOOK_INPUT_TEXT}
-                    />
-                    <input type="submit" value="Submit"/>
+                    <div className={`${baseClassName}__label`}>
+                        <label htmlFor="search-input">
+                            {SEARCH_BOOK_LABEL}
+                        </label>
+                    </div>
+                    <div className={`${baseClassName}__search-container`}>
+                        <input
+                            className="search-input"
+                            id="search-input"
+                            type="text"
+                            value={this.state.value}
+                            onChange={this.onChange}
+                            placeholder={SEARCH_BOOK_INPUT_TEXT}
+                        />
+                        <input
+                            className={`${baseClassName}__submit-button`}
+                            type="submit"
+                            value="Submit"/>
+                    </div>
                 </form>
             </Col>
         );
