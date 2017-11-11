@@ -3,7 +3,8 @@ import React from "react";
 import {
     FIELDS_NAMES,
     FIELDS_DESC,
-    BOOK_COVER_DESCRIPTION
+    BOOK_COVER_DESCRIPTION,
+    TO_SHOP
 } from "../constants/constants";
 
 function SingleBook({
@@ -50,16 +51,12 @@ function renderBookBox(cover, bookData, url, title) {
                     height={200}
                     src={cover}
                 />
-                <div
-                    className={`${baseClassName}__content-description`}
-                >
+                <div className={`${baseClassName}__content-description`}>
                     {FIELDS_DESC.map((field, index) =>
-                        <div key={index}
-
-                        >
-                            {getFieldWithDescription(bookData, field, baseClassName)}</div>
+                        <div key={index}>
+                            {getFieldWithDescription(bookData, field, baseClassName)}
+                        </div>
                     )}
-
                 </div>
             </div>
 
@@ -68,7 +65,7 @@ function renderBookBox(cover, bookData, url, title) {
                 action={url}
                 method="get"
                 target="_blank">
-                <button>Przejdź do sklepu</button>
+                <button>{TO_SHOP}</button>
             </form>
         </div>
     )

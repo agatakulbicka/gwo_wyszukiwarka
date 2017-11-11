@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import React, {Component} from "react";
-import {SEARCH_BOOK_LABEL, SEARCH_BOOK_INPUT_TEXT} from "../constants/constants";
+import {
+    SEARCH_BOOK_LABEL,
+    SEARCH_BOOK_INPUT_TEXT,
+    SEARCH
+} from "../constants/constants";
 
 class SearchBoxComponent extends Component {
 
@@ -44,7 +48,7 @@ class SearchBoxComponent extends Component {
                     <input
                         className={`${baseClassName}__submit-button`}
                         type="submit"
-                        value="Submit"/>
+                        value={SEARCH}/>
                 </div>
             </form>
         );

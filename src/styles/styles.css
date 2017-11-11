@@ -54,6 +54,13 @@
     align-items: center; }
     .book-box__content-rows {
       text-align: left; }
+    .book-box__content-cover {
+      transition: all .5s ease-in-out; }
+      .book-box__content-cover:hover {
+        transform: scale(1.8); }
+      @media only screen and (max-width: 600px) {
+        .book-box__content-cover:hover {
+          transform: none; } }
     .book-box__content-description {
       display: flex;
       flex-direction: column;
