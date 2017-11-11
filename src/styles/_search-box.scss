@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 10px 0;
 
   &__label {
     font-size: 1.6em;
@@ -12,6 +13,9 @@
 
   &__search-container {
     height: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 
     .search-input {
       width: 400px;
@@ -20,6 +24,7 @@
       border: 1px solid #555;
       outline: none;
       height: inherit;
+      margin: 0 10px;
 
       &:focus {
         background-color: lighten($first-color, 20%);
@@ -27,7 +32,12 @@
 
       @include respond-to(handhelds) {
         width: 100%;
+        margin: 10px 0;
       }
+    }
+    @include respond-to(handhelds) {
+      flex-direction: column;
+      height: auto;
     }
   }
 
