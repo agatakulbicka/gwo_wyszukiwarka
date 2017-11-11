@@ -1,12 +1,15 @@
-.loader {
+.loader__animation {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid #f67489;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
-  margin: 0 auto; }
+  margin: 50px auto; }
+.loader__label {
+  color: #f67489;
+  font-size: 3em; }
 
 @-webkit-keyframes spin {
   0% {
@@ -57,8 +60,10 @@
         display: block;
         padding: 10px; } }
 
-body {
-  font-family: "Segoe UI", "Georgia, serif"; }
+body,
+html {
+  font-family: "Segoe UI", "Georgia, serif";
+  height: 100vh; }
 
 .search-container {
   min-height: 500px;

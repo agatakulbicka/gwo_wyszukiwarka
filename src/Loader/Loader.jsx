@@ -1,7 +1,13 @@
 import React from "react";
 
-function Loader(){
-    return <div className="loader"></div>
+function Loader() {
+    const baseClassName = "loader";
+    return (
+        <div className={baseClassName}>
+            <div className={`${baseClassName}__animation`}/>
+            <div className={`${baseClassName}__label`}>Wyszukiwanie danych...</div>
+        </div>
+    );
 }
 
 export default Loader;

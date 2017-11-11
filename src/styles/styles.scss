@@ -2,8 +2,10 @@
 @import "single-book";
 @import "constants";
 
-body {
+body,
+html {
   font-family: $main-font-family;
+  height: 100vh;
 }
 
 .search-container {
