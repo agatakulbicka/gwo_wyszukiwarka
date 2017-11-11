@@ -5,9 +5,8 @@ import SingleBook from "../SingleBook/SingleBook";
 
 function FilteredListComponent({booksData}){
     return (
-        <Col md={12} className="show-grid filter-list">
+        <Col md={12} className="filter-list">
             {renderBooksList(booksData)}
-            {renderBooksData(booksData)}
         </Col>
     )
 }

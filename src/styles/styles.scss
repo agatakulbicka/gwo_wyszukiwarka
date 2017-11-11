@@ -1,28 +1,38 @@
 @import "loader";
+@import "single-book";
+@import "constants";
+
+body {
+  font-family: $main-font-family;
+}
 
 .search-container {
-  min-height: 400px;
-  height:300px;
-  background-color: peachpuff;
+  min-height: 500px;
+  background-color: white;
   width: 96%;
 }
+//
+//
+//.selected-book {
+//
+//  &__content {
+//    text-align: left;
+//
+//    &-rows {
+//      display: flex;
+//
+//      .description {
+//        font-weight: bolder;
+//        white-space: nowrap;
+//        overflow: hidden;
+//        text-overflow: ellipsis;
+//      }
+//    }
+//  }
+//}
+//
+//
+//.thumbnail {
+//  height: 350px;
+//}
 
-
-.selected-book {
-
-  &__content {
-    text-align: left;
-
-    &-rows {
-      display: flex;
-
-      .description {
-        font-weight: bolder;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 50%;
-      }
-    }
-  }
-}

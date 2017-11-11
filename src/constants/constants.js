@@ -11,7 +11,7 @@ export const FIELDS_NAMES = {
     men: "Numer dopuszczenia MEN",
     pages_count: "Liczba stron",
     levels: "Poziomy nauczania",
-    subject: "Przedmiont",
+    subject: "Przedmiot",
     type: "Rodzaj publiakcji",
     cover: "Okładka"
 };
