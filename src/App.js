@@ -1,5 +1,4 @@
 import React from "react";
-import './App.scss';
 import "./styles/styles.scss"
 import {SearchContainer} from "./Search/index";
 

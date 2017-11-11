@@ -6,10 +6,12 @@ import fetchBooksData from "../actions/actions";
 import FilteredListComponent from "./FilteredListComponent";
 import SearchBoxComponent from "./SearchBoxComponent";
 import {Loader} from "../Loader/index";
+import {ScrollUpButton} from "../ScrollUpButton/index";
 
 function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
     return (
         <section className="search-container">
+            <ScrollUpButton/>
             <SearchBoxComponent fetchBooksData={fetchBooksData}/>
             {renderMainContent(isFetchingBooksData, booksData)}
         </section>
