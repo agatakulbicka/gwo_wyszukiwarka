@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import React, {Component} from "react";
+import {SEARCH_BOOK_LABEL, SEARCH_BOOK_INPUT_TEXT} from "../constants/constants";
 import {Col} from "react-bootstrap";
 
 class SearchBoxComponent extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {value: ""};
 
@@ -16,24 +17,24 @@ class SearchBoxComponent extends Component {
         this.props.fetchBooksData(encodeURIComponent(this.state.value))
     }
 
-    onChange = (event) => this.setState({ value: event.target.value });
+    onChange = (event) => this.setState({value: event.target.value});
 
 
     render() {
         return (
             <Col md={12} className="searchbox-component">
-                    <form onSubmit={this.getResults}>
+                <form onSubmit={this.getResults}>
                     <label htmlFor="search-input">
-                        Podaj szukaną frazę...
+                        {SEARCH_BOOK_LABEL}
                     </label>
                     <input
                         id="search-input"
                         type="text"
                         value={this.state.value}
                         onChange={this.onChange}
-                        placeholder="Wpisz..."
+                        placeholder={SEARCH_BOOK_INPUT_TEXT}
                     />
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit"/>
                 </form>
             </Col>
         );

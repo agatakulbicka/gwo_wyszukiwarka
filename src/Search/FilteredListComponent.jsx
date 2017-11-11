@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import {Col} from "react-bootstrap";
-import SingleBook from "../SingleBook/SingleBook";
+import {SingleBook} from "../SingleBook/index";
 
 function FilteredListComponent({booksData}){
     return (

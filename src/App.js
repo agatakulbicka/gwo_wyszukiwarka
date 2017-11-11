@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import './App.scss';
 import "./styles/styles.scss"
-import Search from "./Search/SearchContainer";
+import {SearchContainer} from "./Search/index";
 
 class App extends Component {
 
@@ -20,7 +20,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-          <Search store={store}/>
+          <SearchContainer store={store}/>
       </div>
     );
   }
