@@ -25,16 +25,22 @@
   border-radius: 10px;
   border: dashed #ffdfff;
   margin: 20px 0;
-  height: 400px;
+  width: 33%;
+  min-width: 400px;
+  max-width: 600px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
-  @media only screen and (min-width: 501px) and (max-width: 1023px) {
+  @media only screen and (min-width: 601px) and (max-width: 1023px) {
     .book-box {
-      height: 350px; } }
-  @media only screen and (max-width: 500px) {
+      width: 48%;
+      min-width: initial; } }
+  @media only screen and (max-width: 600px) {
     .book-box {
-      height: initial; } }
+      width: 100%;
+      height: initial;
+      min-width: initial; } }
   .book-box h1 {
     font-size: 2em;
     color: #f67489;
@@ -44,7 +50,8 @@
     display: flex;
     justify-content: center;
     padding: 10px 30px;
-    font-size: 1.1em; }
+    font-size: 1.1em;
+    align-items: center; }
     .book-box__content-rows {
       text-align: left; }
     .book-box__content-description {
@@ -52,10 +59,11 @@
       flex-direction: column;
       align-items: baseline;
       padding-left: 10px;
-      line-height: 1.7em; }
+      line-height: 1.7em;
+      overflow-y: auto; }
       .book-box__content-description .desc {
         font-weight: bolder; }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 600px) {
       .book-box__content {
         display: block;
         padding: 10px; } }
@@ -74,7 +82,8 @@
 .search-box {
   background-color: white;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  flex-direction: column; }
   .search-box__label {
     font-size: 1.6em; }
   .search-box__search-container {
@@ -88,6 +97,9 @@
       height: inherit; }
       .search-box__search-container .search-input:focus {
         background-color: #fcd4da; }
+      @media only screen and (max-width: 600px) {
+        .search-box__search-container .search-input {
+          width: 100%; } }
   .search-box__submit-button {
     background: none repeat scroll 0 0 #f67489;
     border: medium none;
@@ -109,6 +121,17 @@ html {
 .search-container {
   min-height: 500px;
   background-color: white;
-  width: 96%; }
+  width: 96%;
+  margin: 0 auto; }
+
+.filtered-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row; }
+  @media only screen and (max-width: 600px) {
+    .filtered-list {
+      flex-direction: column;
+      justify-content: center; } }
 
 /*# sourceMappingURL=styles.css.map */

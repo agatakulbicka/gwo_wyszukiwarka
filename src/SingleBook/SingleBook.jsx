@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import {FIELDS_NAMES, FIELDS_DESC} from "../constants/constants";
-import {Button, Col} from "react-bootstrap";
 
 function SingleBook({
     bookData,
@@ -12,11 +11,7 @@ function SingleBook({
     },
 }) {
 
-    return (
-        <Col sx={12} sm={6} md={4}>
-            {renderBookBox(cover, bookData, url, title)}
-        </Col>
-    );
+    return renderBookBox(cover, bookData, url, title);
 }
 
 function getFieldWithDescription(book, description, baseClassName) {

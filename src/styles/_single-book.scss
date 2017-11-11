@@ -4,17 +4,23 @@
   border-radius: 10px;
   border: dashed $second-color;
   margin: 20px 0;
-  height: 400px;
+  width: 33%;
+  min-width:400px;
+  max-width: 600px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   @include respond-to(medium-screens) {
-    height: 350px;
-  }
+    width: 48%;
+    min-width: initial;
+    }
 
   @include respond-to(handhelds) {
+    width: 100%;
     height: initial;
+    min-width: initial;
   }
 
   h1 {
@@ -29,6 +35,7 @@
     justify-content: center;
     padding: 10px 30px;
     font-size: 1.1em;
+    align-items: center;
 
     &-rows {
       text-align: left;
@@ -40,6 +47,7 @@
       align-items: baseline;
       padding-left: 10px;
       line-height: 1.7em;
+      overflow-y: auto;
 
       .desc {
         font-weight: bolder;

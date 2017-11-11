@@ -6,15 +6,13 @@ import fetchBooksData from "../actions/actions";
 import FilteredListComponent from "./FilteredListComponent";
 import SearchBoxComponent from "./SearchBoxComponent";
 import {Loader} from "../Loader/index";
-import {Grid, Row} from "react-bootstrap";
 
 function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
     return (
-        <Grid className="search-container">
-            <Row><SearchBoxComponent fetchBooksData={fetchBooksData}/></Row>
-            <Row>{renderMainContent(isFetchingBooksData, booksData)}</Row>
-
-        </Grid>
+        <section className="search-container">
+            <SearchBoxComponent fetchBooksData={fetchBooksData}/>
+            {renderMainContent(isFetchingBooksData, booksData)}
+        </section>
     )
 }
 

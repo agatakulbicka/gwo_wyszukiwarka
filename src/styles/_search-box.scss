@@ -4,6 +4,7 @@
   background-color: white;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 
   &__label {
     font-size: 1.6em;
@@ -22,6 +23,10 @@
 
       &:focus {
         background-color: lighten($first-color, 20%);
+      }
+
+      @include respond-to(handhelds) {
+        width: 100%;
       }
     }
   }

@@ -1,13 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
-import {Col} from "react-bootstrap";
 import {SingleBook} from "../SingleBook/index";
 
 function FilteredListComponent({booksData}){
     return (
-        <Col md={12} className="filter-list">
+        <div className="filtered-list">
             {renderBooksList(booksData)}
-        </Col>
+        </div>
     )
 }
 
