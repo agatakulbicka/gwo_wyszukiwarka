@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import {FIELDS_NAMES, FIELDS_DESC} from "../constants/constants";
-import {Button,  Col} from "react-bootstrap";
+import {Button, Col} from "react-bootstrap";
 
 function SingleBook({
     bookData,
@@ -63,9 +63,13 @@ function renderBookBox(cover, bookData, url, title) {
                 </div>
             </div>
 
-            <div className={`${baseClassName}__footer`}>
-                <Button type="button" bsStyle="primary" href={url} target="_blank">KUP</Button>
-            </div>
+            <form
+                className={`${baseClassName}__button`}
+                action={url}
+                method="get"
+                target="_blank">
+                <button>Przejdź do sklepu</button>
+            </form>
         </div>
     )
 }
