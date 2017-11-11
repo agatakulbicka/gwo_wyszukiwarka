@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-import {FIELDS_NAMES, FIELDS_DESC} from "../constants/constants";
+import {
+    FIELDS_NAMES,
+    FIELDS_DESC,
+    BOOK_COVER_DESCRIPTION
+} from "../constants/constants";
 
 function SingleBook({
     bookData,
@@ -41,6 +45,7 @@ function renderBookBox(cover, bookData, url, title) {
 
             <div className={`${baseClassName}__content`}>
                 <img
+                    alt={`${BOOK_COVER_DESCRIPTION} ${title}`}
                     className={`${baseClassName}__content-cover`}
                     height={200}
                     src={cover}
