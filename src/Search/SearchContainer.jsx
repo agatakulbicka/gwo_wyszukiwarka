@@ -9,6 +9,8 @@ import {Loader} from "../Loader/index";
 import {ScrollUpButton} from "../ScrollUpButton/index";
 
 function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
+    console.log("booksData", booksData);
+
     return (
         <section className="search-container">
             <ScrollUpButton/>
@@ -21,7 +23,8 @@ function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
 function renderMainContent(isLoaderVisible, booksData) {
     return isLoaderVisible ? <Loader/> :
         <FilteredListComponent
-            booksData={booksData}/>;
+            booksData={booksData}
+        />
 }
 
 const mapStateToProps = state => ({
@@ -34,7 +37,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 SearchContainer.propTypes = {
-    booksData: PropTypes.array,
+    booksData: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
     fetchBooksData: PropTypes.func,
     isFetchingBooksData: PropTypes.bool
 };

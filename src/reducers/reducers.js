@@ -12,7 +12,7 @@ function selectedPhrase(state = {}, action) {
     }
 }
 
-function booksData(state = [], action) {
+function booksData(state = "", action) {
     switch(action.type) {
         case RECEIVE_BOOKS_DATA:
             return action.booksData;

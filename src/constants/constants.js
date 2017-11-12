@@ -36,3 +36,7 @@ export const BOOK_COVER_DESCRIPTION= "Okładka książki pd tytułem";
 export const TO_SHOP = "Przejdź do sklepu";
 
 export const SEARCH = "Szukaj";
+
+export const MAIN_TEXT_START = "Rozpocznij wyszukiwanie";
+export const SEARCHING_RESULTS = "Ilość znalezionych wyników:";
+export const NO_SEARCHING_RESULTS = "Brak wyników dla podanej frazy";
