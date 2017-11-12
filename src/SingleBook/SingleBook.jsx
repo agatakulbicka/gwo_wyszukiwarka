@@ -20,11 +20,11 @@ function SingleBook({
 }
 
 function getFieldWithDescription(book, description, baseClassName) {
-
     const fieldName = Object.values(FIELDS_NAMES).find(name => name === FIELDS_NAMES[description]);
+    const additionalClass = description === "isbn" || description === "men" ? "is-smaller" : "";
 
     return (
-        <div className={`${baseClassName}__content-rows`}>
+        <div className={`${baseClassName}__content-rows ${additionalClass}`}>
             <span className="field">{`${fieldName}: `}</span>
             <span className="desc">{description === "levels" ?
                 `${book[description][0].class}, ${book[description][0].school}` :
