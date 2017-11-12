@@ -30,18 +30,24 @@ class SearchBoxComponent extends Component {
                 onSubmit={this.getResults}
             >
                 <div className={`${baseClassName}__label`}>
-                    <label htmlFor="search-input">
+                    <label
+                        htmlFor="searchInput"
+                        id="searchLabel"
+                    >
                         {SEARCH_BOOK_LABEL}
                     </label>
                 </div>
                 <div className={`${baseClassName}__search-container`}>
                     <input
                         className="search-input"
-                        id="search-input"
+                        id="searchInput"
                         type="text"
                         value={this.state.value}
                         onChange={this.onChange}
                         placeholder={SEARCH_BOOK_INPUT_TEXT}
+                        aria-labelledby="searchLabel"
+                        aria-required
+                        required
                     />
                     <input
                         className={`${baseClassName}__submit-button`}

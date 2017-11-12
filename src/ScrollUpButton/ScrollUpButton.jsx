@@ -7,6 +7,7 @@ window.onscroll = function() {
 function ScrollUpButton() {
     return (
         <button
+            aria-hidden
             className="scroll-up"
             onClick={topFunction}
             id="scrollUp"
