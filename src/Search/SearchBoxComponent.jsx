@@ -7,11 +7,10 @@ import {
 } from "../constants/constants";
 
 class SearchBoxComponent extends Component {
-
     constructor() {
         super();
-        this.state = {value: ""};
 
+        this.state = {value: ""};
         this.getResults = this.getResults.bind(this);
     }
 
@@ -21,7 +20,6 @@ class SearchBoxComponent extends Component {
     }
 
     onChange = (event) => this.setState({value: event.target.value});
-
 
     render() {
         const baseClassName = "search-box";
@@ -55,10 +53,8 @@ class SearchBoxComponent extends Component {
     }
 }
 
-
 SearchBoxComponent.propTypes = {
     fetchBooksData: PropTypes.func
 };
-
 
 export default SearchBoxComponent;

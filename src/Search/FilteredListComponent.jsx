@@ -30,7 +30,8 @@ function renderBooksList(books) {
             key={index}
             bookData={book}
             baseClassName="selected-book"
-        />)
+        />
+    )
 }
 
 function renderSearchingResult(booksData) {

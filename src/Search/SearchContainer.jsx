@@ -9,7 +9,6 @@ import {Loader} from "../Loader/index";
 import {ScrollUpButton} from "../ScrollUpButton/index";
 
 function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
-    console.log("booksData", booksData);
 
     return (
         <section className="search-container">

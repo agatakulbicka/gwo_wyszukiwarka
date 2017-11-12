@@ -36,8 +36,8 @@ function getFieldWithDescription(book, description, baseClassName) {
 }
 
 function renderBookBox(cover, bookData, url, title) {
-
     const baseClassName = "book-box";
+
     return (
         <div className={baseClassName}>
             <h1 className={`${baseClassName}__header`}>
