@@ -41,19 +41,6 @@
       text-align: left;
     }
 
-    &-cover {
-      transition: all .3s ease-in-out;
-      &:hover {
-        transform: scale(1.3);
-      }
-
-      @include respond-to(handhelds) {
-        &:hover {
-          transform: none;
-        }
-      }
-    }
-
     &-description {
       display: flex;
       flex-direction: column;
