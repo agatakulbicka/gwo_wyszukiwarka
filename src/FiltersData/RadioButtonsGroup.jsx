@@ -11,19 +11,21 @@ function RadioButtonsGroup({baseClassName, getNumberOfElementsOnPage}) {
             <span className={`${baseClassName}_label`}>{PAGINATION_BUTTONS_LABEL}</span>
             <div className={`${baseClassName}_radio-buttons`}>
                 {PAGINATION_BUTTON_NUMBER.map((singleButton, index) => (
-                    <span key={`${singleButton}-${index}`}>
-                    <input
-                        type="radio"
-                        id={`elements-${singleButton}`}
-                        name="pagesNumber"
-                        value="pagesNumber"
-                        onClick={() => getNumberOfElementsOnPage(singleButton)}
-                        defaultChecked={singleButton === 6}
-                    />
-                    <label htmlFor={`elements-${singleButton}`}>
+                    <label
+                        key={`${singleButton}-${index}`}
+                        className="radio-label"
+                    >
+                        <input
+                            className="radio-button"
+                            type="radio"
+                            id={`elements-${singleButton}`}
+                            name="pagesNumber"
+                            value="pagesNumber"
+                            onClick={() => getNumberOfElementsOnPage(singleButton)}
+                            defaultChecked={singleButton === 6}
+                        />
                         {singleButton}
                     </label>
-                </span>
                 ))}
             </div>
         </form>

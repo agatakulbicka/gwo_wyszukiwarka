@@ -3,7 +3,8 @@ $break-large: 1024px;
 $main-font-family: "Segoe UI, Georgia, serif";
 $first-color: #e94601;
 $second-color: #f28b00;
-$third-color: #f3f3f3;
+$third-color: lightgrey;
+$white-color: white;
 
 @mixin respond-to($media) {
   @if $media == handhelds {
@@ -21,7 +22,7 @@ $third-color: #f3f3f3;
   font-family: $main-font-family;
   background: none repeat scroll 0 0 $first-color;
   border: medium none;
-  color: white;
+  color: $white-color;
   cursor: pointer;
   margin-bottom: 26px;
   padding: 8px;

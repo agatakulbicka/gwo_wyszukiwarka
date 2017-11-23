@@ -15,7 +15,7 @@ function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
         <section className="search-container">
             <ScrollUpButton/>
             <SearchBoxComponent fetchBooksData={fetchBooksData}/>
-            <FiltersDataContainer baseClassName="filtersData"/>
+            <FiltersDataContainer baseClassName="data-filters"/>
             {renderMainContent(isFetchingBooksData, booksData)}
         </section>
     )

@@ -44,4 +44,4 @@ export const SEARCHING_RESULTS = "Ilość znalezionych wyników:";
 export const NO_SEARCHING_RESULTS = "Brak wyników dla podanej frazy";
 
 export const PAGINATION_BUTTON_NUMBER = [6,12,18];
-export const PAGINATION_BUTTONS_LABEL = "Liczba wyświetlanych wyników:";
+export const PAGINATION_BUTTONS_LABEL = "Liczba wyświetlanych wyników na stronie:";

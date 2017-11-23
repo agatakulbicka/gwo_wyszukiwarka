@@ -5,7 +5,7 @@ import {compose} from "redux";
 import {getNumberOfElementsOnPage} from "../actions";
 import RadioButtonsGroup from "./RadioButtonsGroup";
 
-function FiltersData({baseClassName = "filtersData", getNumberOfElementsOnPage}) {
+function FiltersData({baseClassName = "data-filters", getNumberOfElementsOnPage}) {
 
     return (
         <section>
