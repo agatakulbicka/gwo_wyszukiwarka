@@ -48,6 +48,8 @@ class SearchBoxComponent extends Component {
                         aria-labelledby="searchLabel"
                         aria-required
                         required
+                        maxLength="12"
+                        minLength="3"
                     />
                     <input
                         className={`${baseClassName}__submit-button`}
