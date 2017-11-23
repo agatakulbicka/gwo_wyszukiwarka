@@ -5,7 +5,7 @@ import {
     FIELDS_DESC,
     BOOK_COVER_DESCRIPTION,
     TO_SHOP
-} from "../constants/constants";
+} from "../../constants/constants";
 
 function SingleBook({
     bookData,

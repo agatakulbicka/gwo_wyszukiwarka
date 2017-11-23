@@ -5,22 +5,18 @@ import {
     SEARCHING_RESULTS,
     NO_SEARCHING_RESULTS
 } from "../constants/constants";
-import {SingleBook} from "../SingleBook/index";
+import {SingleBook} from "./SingleBook";
 
 function FilteredListComponent({booksData}) {
-
     return (
-        <div>{
-            typeof(booksData) === "string" ?
-                <div>{MAIN_TEXT_START}</div> :
-                <div>
-                    {renderSearchingResult(booksData)}
-                    <div className="filtered-list">
-                        { renderBooksList(booksData)}
-                    </div>
+        typeof(booksData) === "string" ?
+            <div>{MAIN_TEXT_START}</div> :
+            <div>
+                {renderSearchingResult(booksData)}
+                <div className="filtered-list">
+                    { renderBooksList(booksData)}
                 </div>
-        }
-        </div>
+            </div>
     )
 }
 
