@@ -8,33 +8,24 @@ import {
 function RadioButtonsGroup({baseClassName, getNumberOfElementsOnPage}) {
     return (
         <form className={baseClassName}>
-            <p>{PAGINATION_BUTTONS_LABEL}</p>
-            <div>
-                <input type="radio" id="elements6"
-                       name="pagesNumber"
-                       value="pagesNumber"
-                       defaultChecked
-                       onClick={() => getNumberOfElementsOnPage(PAGINATION_BUTTON_NUMBER[0])}
-                />
-                <label htmlFor="elements6">{PAGINATION_BUTTON_NUMBER[0]}</label>
-
-                <input type="radio"
-                       id="elements12"
-                       name="pagesNumber"
-                       value="pagesNumber"
-                       onClick={() => getNumberOfElementsOnPage(PAGINATION_BUTTON_NUMBER[1])}
-                />
-                <label htmlFor="elements12">{PAGINATION_BUTTON_NUMBER[1]}</label>
-
-                <input type="radio"
-                       id="elements18"
-                       name="pagesNumber"
-                       value="pagesNumber"
-                       onClick={() => getNumberOfElementsOnPage(PAGINATION_BUTTON_NUMBER[2])}
-                />
-                <label htmlFor="elements18">{PAGINATION_BUTTON_NUMBER[2]}</label>
+            <span className={`${baseClassName}_label`}>{PAGINATION_BUTTONS_LABEL}</span>
+            <div className={`${baseClassName}_radio-buttons`}>
+                {PAGINATION_BUTTON_NUMBER.map((singleButton, index) => (
+                    <span key={`${singleButton}-${index}`}>
+                    <input
+                        type="radio"
+                        id={`elements-${singleButton}`}
+                        name="pagesNumber"
+                        value="pagesNumber"
+                        onClick={() => getNumberOfElementsOnPage(singleButton)}
+                        defaultChecked={singleButton === 6}
+                    />
+                    <label htmlFor={`elements-${singleButton}`}>
+                        {singleButton}
+                    </label>
+                </span>
+                ))}
             </div>
-
         </form>
     );
 }
