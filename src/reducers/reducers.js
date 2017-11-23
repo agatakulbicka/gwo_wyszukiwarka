@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { REQUEST_BOOKS_DATA, RECEIVE_BOOKS_DATA} from "../constants/constants"
+import pagination from "./pagination";
 
 
 function selectedPhrase(state = {}, action) {
@@ -34,7 +35,8 @@ function isFetchingBooksData(state, action) {
 const rootReducer = combineReducers({
     booksData,
     isFetchingBooksData,
-    selectedPhrase
+    selectedPhrase,
+    pagination
 });
 
 export default rootReducer;

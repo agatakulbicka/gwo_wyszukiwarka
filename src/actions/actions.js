@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { BASE_URL, REQUEST_BOOKS_DATA, RECEIVE_BOOKS_DATA} from "../constants/constants"
+import { BASE_URL, REQUEST_BOOKS_DATA, RECEIVE_BOOKS_DATA, GET_ELEMENTS_ON_PAGE_NUMBER} from "../constants/constants"
 
 function requestBooksData(phrase) {
 
@@ -17,11 +17,18 @@ function receiveBooksData(phrase, json) {
     }
 }
 
-export default function fetchBooksData(phrase) {
+export function fetchBooksData(phrase) {
     return dispatch => {
         dispatch(requestBooksData(phrase));
         return fetch(`${BASE_URL}${phrase}`)
             .then(response => response.json())
             .then(json => dispatch(receiveBooksData(phrase, json)))
+    }
+}
+
+export function getNumberOfElementsOnPage(elementsNumber){
+    return {
+        type: GET_ELEMENTS_ON_PAGE_NUMBER,
+        elementsNumber: elementsNumber
     }
 }

@@ -3,6 +3,8 @@ export const BASE_URL = 'https://gwo.pl/booksApi/v1/search?query=';
 export const REQUEST_BOOKS_DATA = 'REQUEST_BOOKS_DATA';
 export const RECEIVE_BOOKS_DATA = 'RECEIVE_BOOKS_DATA';
 
+export const GET_ELEMENTS_ON_PAGE_NUMBER = "GET_ELEMENTS_ON_PAGE_NUMBER";
+
 export const FIELDS_NAMES = {
     title: "Tytuł",
     author: "Autorzy",
@@ -40,3 +42,6 @@ export const SEARCH = "Szukaj";
 export const MAIN_TEXT_START = "Rozpocznij wyszukiwanie";
 export const SEARCHING_RESULTS = "Ilość znalezionych wyników:";
 export const NO_SEARCHING_RESULTS = "Brak wyników dla podanej frazy";
+
+export const PAGINATION_BUTTON_NUMBER = [6,12,18];
+export const PAGINATION_BUTTONS_LABEL = "Liczba wyświetlanych wyników:";

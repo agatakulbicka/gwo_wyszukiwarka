@@ -2,11 +2,12 @@ import PropTypes from "prop-types";
 import React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import fetchBooksData from "../actions/actions";
+import {fetchBooksData} from "../actions/actions";
 import FilteredListComponent from "./FilteredListComponent";
 import SearchBoxComponent from "./SearchBoxComponent";
-import {Loader} from "../Loader/index";
-import {ScrollUpButton} from "../ScrollUpButton/index";
+import {Loader} from "../Loader";
+import {ScrollUpButton} from "../ScrollUpButton";
+import {FiltersDataContainer} from "../FiltersData";
 
 function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
 
@@ -14,6 +15,7 @@ function SearchContainer({booksData, fetchBooksData, isFetchingBooksData}) {
         <section className="search-container">
             <ScrollUpButton/>
             <SearchBoxComponent fetchBooksData={fetchBooksData}/>
+            <FiltersDataContainer baseClassName="filtersData"/>
             {renderMainContent(isFetchingBooksData, booksData)}
         </section>
     )
