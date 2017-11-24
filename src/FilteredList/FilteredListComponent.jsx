@@ -6,6 +6,7 @@ import {
     NO_SEARCHING_RESULTS
 } from "../constants/constants";
 import {SingleBook} from "./SingleBook";
+import {Pagination} from "./Pagination";
 
 function FilteredListComponent({booksData}) {
     return (
@@ -14,7 +15,8 @@ function FilteredListComponent({booksData}) {
             <div>
                 {renderSearchingResult(booksData)}
                 <div className="filtered-list">
-                    { renderBooksList(booksData)}
+                    <Pagination/>
+                    {renderBooksList(booksData)}
                 </div>
             </div>
     )
