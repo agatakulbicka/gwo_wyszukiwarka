@@ -14,7 +14,8 @@ function FilteredListContainer(props) {
         getPrevPage,
         currentPage,
         lastPageNumber,
-        elementsOnPageNumber
+        elementsOnPageNumber,
+        isPaginationVisible
     } = props;
 
     return isFetchingBooksData ? <Loader/> :
@@ -26,6 +27,7 @@ function FilteredListContainer(props) {
             currentPage={currentPage}
             lastPageNumber={lastPageNumber}
             elementsOnPageNumber={elementsOnPageNumber}
+            isPaginationVisible={isPaginationVisible}
         />
 }
 
@@ -46,8 +48,9 @@ const mergeProps = (stateProps, dispatchProps) => ({
     ...dispatchProps,
     lastPageNumber: stateProps.booksData.length > stateProps.elementsOnPageNumber ?
         Math.ceil(stateProps.booksData.length / stateProps.elementsOnPageNumber):
-        stateProps.currentPage
-
+        stateProps.currentPage,
+    isPaginationVisible: stateProps.booksData.length > 0 &&
+    stateProps.booksData.length > stateProps.elementsOnPageNumber
 });
 
 FilteredListContainer.propTypes = {
@@ -57,7 +60,8 @@ FilteredListContainer.propTypes = {
     getPrevPage: PropTypes.func,
     currentPage: PropTypes.number,
     elementsOnPageNumber: PropTypes.number,
-    lastPageNumber: PropTypes.number
+    lastPageNumber: PropTypes.number,
+    isPaginationVisible: PropTypes.bool
 };
 
 export default connect(

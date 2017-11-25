@@ -1,0 +1,20 @@
+@import "shared";
+
+.filtered-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  @include respond-to(handhelds) {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &_main-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

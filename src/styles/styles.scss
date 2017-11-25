@@ -4,6 +4,7 @@
 @import "search-box";
 @import "scroll-up";
 @import "data-filters";
+@import "filtered-list";
 
 body,
 html {
@@ -17,16 +18,4 @@ html {
   background-color: white;
   width: 96%;
   margin: 0 auto;
-}
-
-.filtered-list {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-direction: row;
-
-  @include respond-to(handhelds) {
-    flex-direction: column;
-    justify-content: center;
-  }
 }
