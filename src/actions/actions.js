@@ -1,5 +1,12 @@
 import fetch from "isomorphic-fetch";
-import { BASE_URL, REQUEST_BOOKS_DATA, RECEIVE_BOOKS_DATA, GET_ELEMENTS_ON_PAGE_NUMBER} from "../constants/constants"
+import {
+    BASE_URL, REQUEST_BOOKS_DATA,
+    RECEIVE_BOOKS_DATA,
+    GET_ELEMENTS_ON_PAGE_NUMBER,
+    CHANGE_CURRENT_PAGE_NUMBER,
+    GET_NEXT_PAGE_NUMBER,
+    GET_PREV_PAGE_NUMBER
+} from "../constants/constants"
 
 function requestBooksData(phrase) {
 
@@ -30,5 +37,26 @@ export function getNumberOfElementsOnPage(elementsNumber){
     return {
         type: GET_ELEMENTS_ON_PAGE_NUMBER,
         elementsNumber: elementsNumber
+    }
+}
+
+export function changePageNumber(currentPageNumber){
+    return {
+        type: CHANGE_CURRENT_PAGE_NUMBER,
+        currentPageNumber: currentPageNumber
+    }
+}
+
+export function getNextPage(currentPage){
+    return {
+        type: GET_NEXT_PAGE_NUMBER,
+        currentPage: currentPage + 1
+    }
+}
+
+export function getPrevPage(currentPage){
+    return {
+        type: GET_PREV_PAGE_NUMBER,
+        currentPage: currentPage - 1
     }
 }

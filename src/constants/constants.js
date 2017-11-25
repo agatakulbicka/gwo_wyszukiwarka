@@ -5,6 +5,10 @@ export const RECEIVE_BOOKS_DATA = 'RECEIVE_BOOKS_DATA';
 
 export const GET_ELEMENTS_ON_PAGE_NUMBER = "GET_ELEMENTS_ON_PAGE_NUMBER";
 
+export const CHANGE_CURRENT_PAGE_NUMBER = "CHANGE_CURRENT_PAGE_NUMBER";
+export const GET_NEXT_PAGE_NUMBER = "GET_NEXT_PAGE_NUMBER";
+export const GET_PREV_PAGE_NUMBER = " GET_PREV_PAGE_NUMBER";
+
 export const FIELDS_NAMES = {
     title: "Tytuł",
     author: "Autorzy",

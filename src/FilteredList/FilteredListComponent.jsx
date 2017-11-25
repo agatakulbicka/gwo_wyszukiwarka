@@ -8,28 +8,57 @@ import {
 import {SingleBook} from "./SingleBook";
 import {Pagination} from "./Pagination";
 
-function FilteredListComponent({booksData}) {
+function FilteredListComponent(props) {
+    const {
+        booksData,
+        baseClassName,
+        getNextPage,
+        getPrevPage,
+        currentPage,
+        lastPageNumber,
+        elementsOnPageNumber
+    } = props;
+
     return (
         typeof(booksData) === "string" ?
             <div>{MAIN_TEXT_START}</div> :
             <div>
                 {renderSearchingResult(booksData)}
-                <div className="filtered-list">
-                    <Pagination/>
-                    {renderBooksList(booksData)}
+                <div className={baseClassName}>
+                    <Pagination
+                        getNextPage={getNextPage}
+                        getPrevPage={getPrevPage}
+                        currentPage={currentPage}
+                        lastPageNumber={lastPageNumber}
+                    />
+                    {renderBooksList(booksData, elementsOnPageNumber, currentPage, lastPageNumber)}
                 </div>
             </div>
     )
 }
 
-function renderBooksList(books) {
+function renderBooksList(books, elementsOnPageNumber, currentPage, lastPageNumber) {
+    const start = currentPage * elementsOnPageNumber - 1;
+    const end = (currentPage + 1) * elementsOnPageNumber - 1;
+
+    const firstPageBooks = books.slice(0, elementsOnPageNumber);
+    const currentPageBooks = books.slice(start, end);
+    const lastPageBooks = books.slice((currentPage - 1) * elementsOnPageNumber);
+
+    return currentPage === 1 ?
+        renderSinglePageElements(firstPageBooks) : currentPage === lastPageNumber ?
+            renderSinglePageElements(lastPageBooks) :
+            renderSinglePageElements(currentPageBooks);
+}
+
+function renderSinglePageElements(books) {
     return books.map((book, index) =>
         <SingleBook
             key={index}
             bookData={book}
             baseClassName="selected-book"
         />
-    )
+    );
 }
 
 function renderSearchingResult(booksData) {
@@ -39,7 +68,13 @@ function renderSearchingResult(booksData) {
 }
 
 FilteredListComponent.propTypes = {
-    booksData: PropTypes.oneOfType([PropTypes.array, PropTypes.string])
+    baseClassName: PropTypes.string,
+    booksData: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+    getNextPage: PropTypes.func,
+    getPrevPage: PropTypes.func,
+    currentPage: PropTypes.number,
+    lastPageNumber: PropTypes.number,
+    elementsOnPageNumber: PropTypes.number
 };
 
 export default FilteredListComponent;
