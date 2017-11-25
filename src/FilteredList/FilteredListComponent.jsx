@@ -7,18 +7,16 @@ import {
     NO_SEARCHING_RESULTS
 } from "../constants/constants";
 import {SingleBook} from "./SingleBook";
-import {Pagination} from "./Pagination";
+import {PaginationContainer} from "./Pagination";
 
 function FilteredListComponent(props) {
     const {
         booksData,
         baseClassName,
-        getNextPage,
-        getPrevPage,
         currentPage,
         lastPageNumber,
         elementsOnPageNumber,
-        isPaginationVisible, changePageNumber
+        isPaginationVisible
     } = props;
 
     return (
@@ -26,14 +24,7 @@ function FilteredListComponent(props) {
             <section>{MAIN_TEXT_START}</section> :
             <section className={baseClassName}>
                 {renderSearchingResult(booksData)}
-                {renderPagination(
-                    isPaginationVisible,
-                    getNextPage,
-                    getPrevPage,
-                    currentPage,
-                    lastPageNumber,
-                    changePageNumber
-                )}
+                {renderPagination(isPaginationVisible)}
                 {renderBooksList(
                     booksData,
                     elementsOnPageNumber,
@@ -79,29 +70,19 @@ function renderSearchingResult(booksData) {
         <div>{NO_SEARCHING_RESULTS}</div>
 }
 
-function renderPagination(isPaginationHidden, getNextPage, getPrevPage, currentPage, lastPageNumber, changePageNumber) {
-    return isPaginationHidden ? (
-            <Pagination
-                getNextPage={getNextPage}
-                getPrevPage={getPrevPage}
-                currentPage={currentPage}
-                lastPageNumber={lastPageNumber}
-                changePageNumber={changePageNumber}
-            />
-        ) :
+function renderPagination(isPaginationVisible) {
+    return isPaginationVisible ?
+        <PaginationContainer/> :
         null;
 }
 
 FilteredListComponent.propTypes = {
     baseClassName: PropTypes.string,
     booksData: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-    getNextPage: PropTypes.func,
-    getPrevPage: PropTypes.func,
     currentPage: PropTypes.number,
     lastPageNumber: PropTypes.number,
     elementsOnPageNumber: PropTypes.number,
-    isPaginationVisible: PropTypes.bool,
-    changePageNumber: PropTypes.func
+    isPaginationVisible: PropTypes.bool
 };
 
 export default FilteredListComponent;
