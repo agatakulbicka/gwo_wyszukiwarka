@@ -2,12 +2,14 @@ import {
     fetchBooksData,
     getNumberOfElementsOnPage,
     getNextPage,
-    getPrevPage
+    getPrevPage,
+    changePageNumber
 } from "./actions";
 
 export {
     fetchBooksData,
     getNumberOfElementsOnPage,
     getNextPage,
-    getPrevPage
+    getPrevPage,
+    changePageNumber
 };

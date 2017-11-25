@@ -40,10 +40,10 @@ export function getNumberOfElementsOnPage(elementsNumber){
     }
 }
 
-export function changePageNumber(currentPageNumber){
+export function changePageNumber(currentPage){
     return {
         type: CHANGE_CURRENT_PAGE_NUMBER,
-        currentPageNumber: currentPageNumber
+        currentPage: currentPage
     }
 }
 

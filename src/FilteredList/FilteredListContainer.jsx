@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
-import {getNextPage, getPrevPage} from "../actions";
+import {getNextPage, getPrevPage, changePageNumber} from "../actions";
 import {Loader} from "../Loader";
 import FilteredListComponent from "./FilteredListComponent";
 
@@ -15,7 +15,8 @@ function FilteredListContainer(props) {
         currentPage,
         lastPageNumber,
         elementsOnPageNumber,
-        isPaginationVisible
+        isPaginationVisible,
+        changePageNumber
     } = props;
 
     return isFetchingBooksData ? <Loader/> :
@@ -28,6 +29,7 @@ function FilteredListContainer(props) {
             lastPageNumber={lastPageNumber}
             elementsOnPageNumber={elementsOnPageNumber}
             isPaginationVisible={isPaginationVisible}
+            changePageNumber={changePageNumber}
         />
 }
 
@@ -40,7 +42,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getNextPage: compose(dispatch, getNextPage),
-    getPrevPage: compose(dispatch, getPrevPage)
+    getPrevPage: compose(dispatch, getPrevPage),
+    changePageNumber: compose(dispatch, changePageNumber)
 });
 
 const mergeProps = (stateProps, dispatchProps) => ({
@@ -61,7 +64,8 @@ FilteredListContainer.propTypes = {
     currentPage: PropTypes.number,
     elementsOnPageNumber: PropTypes.number,
     lastPageNumber: PropTypes.number,
-    isPaginationVisible: PropTypes.bool
+    isPaginationVisible: PropTypes.bool,
+    changePageNumber: PropTypes.func
 };
 
 export default connect(

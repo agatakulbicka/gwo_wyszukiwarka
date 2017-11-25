@@ -18,7 +18,7 @@ function FilteredListComponent(props) {
         currentPage,
         lastPageNumber,
         elementsOnPageNumber,
-        isPaginationVisible
+        isPaginationVisible, changePageNumber
     } = props;
 
     return (
@@ -31,7 +31,8 @@ function FilteredListComponent(props) {
                     getNextPage,
                     getPrevPage,
                     currentPage,
-                    lastPageNumber
+                    lastPageNumber,
+                    changePageNumber
                 )}
                 {renderBooksList(
                     booksData,
@@ -78,13 +79,14 @@ function renderSearchingResult(booksData) {
         <div>{NO_SEARCHING_RESULTS}</div>
 }
 
-function renderPagination(isPaginationHidden, getNextPage, getPrevPage, currentPage, lastPageNumber) {
+function renderPagination(isPaginationHidden, getNextPage, getPrevPage, currentPage, lastPageNumber, changePageNumber) {
     return isPaginationHidden ? (
             <Pagination
                 getNextPage={getNextPage}
                 getPrevPage={getPrevPage}
                 currentPage={currentPage}
                 lastPageNumber={lastPageNumber}
+                changePageNumber={changePageNumber}
             />
         ) :
         null;
@@ -98,7 +100,8 @@ FilteredListComponent.propTypes = {
     currentPage: PropTypes.number,
     lastPageNumber: PropTypes.number,
     elementsOnPageNumber: PropTypes.number,
-    isPaginationVisible: PropTypes.bool
+    isPaginationVisible: PropTypes.bool,
+    changePageNumber: PropTypes.func
 };
 
 export default FilteredListComponent;
