@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import isString from "lodash/isString";
 import {
     MAIN_TEXT_START,
     SEARCHING_RESULTS,
@@ -21,7 +22,7 @@ function FilteredListComponent(props) {
     } = props;
 
     return (
-        typeof(booksData) === "string" ?
+        isString(booksData) ?
             <section>{MAIN_TEXT_START}</section> :
             <section className={baseClassName}>
                 {renderSearchingResult(booksData)}
