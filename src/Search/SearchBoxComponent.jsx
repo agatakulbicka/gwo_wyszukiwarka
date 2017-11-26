@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, {Component} from "react";
+import debounce from "lodash/debounce";
 import {
     SEARCH_BOOK_LABEL,
     SEARCH_BOOK_INPUT_TEXT,
@@ -14,12 +15,24 @@ class SearchBoxComponent extends Component {
         this.getResults = this.getResults.bind(this);
     }
 
-    getResults(event) {
-        event.preventDefault();
+    getResults = () => {
         this.props.fetchBooksData(encodeURIComponent(this.state.value))
-    }
+    };
 
-    onChange = (event) => this.setState({value: event.target.value});
+    getResultsDebounced = debounce(() => {
+        this.getResults()
+    }, 1000);
+
+    onChange = event => {
+        event.preventDefault();
+        this.setState({value: event.target.value});
+        this.getResultsDebounced();
+    };
+
+    onSubmit = event => {
+        event.preventDefault();
+        this.getResults();
+    };
 
     render() {
         const baseClassName = "search-box";
@@ -27,7 +40,7 @@ class SearchBoxComponent extends Component {
         return (
             <form
                 className={baseClassName}
-                onSubmit={this.getResults}
+                onSubmit={this.onSubmit}
             >
                 <div className={`${baseClassName}__label`}>
                     <label
@@ -46,7 +59,6 @@ class SearchBoxComponent extends Component {
                         onChange={this.onChange}
                         placeholder={SEARCH_BOOK_INPUT_TEXT}
                         aria-labelledby="searchLabel"
-                        aria-required
                         required
                         maxLength="12"
                         minLength="3"
