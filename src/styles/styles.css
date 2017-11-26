@@ -234,11 +234,43 @@
     .filtered-list {
       flex-direction: column;
       justify-content: center; } }
-  .filtered-list_main-content {
+  .filtered-list__main-content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around; }
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  .pagination__prev, .pagination__next {
+    font-family: "Segoe UI, Georgia, serif";
+    background: none repeat scroll 0 0 #e94601;
+    border: medium none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 26px;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    height: inherit; }
+    .pagination__prev:hover, .pagination__next:hover {
+      background: #fe8552 none repeat scroll 0 0; }
+  .pagination__page-numbers {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none; }
+    .pagination__page-numbers .page-number {
+      font-size: 1.2em; }
+      .pagination__page-numbers .page-number:hover {
+        color: lightgrey;
+        cursor: pointer; }
+      .pagination__page-numbers .page-number-is-checked {
+        color: #e94601;
+        font-size: 1.4em; }
+  .pagination .radio-button {
+    display: none; }
 
 body,
 html {

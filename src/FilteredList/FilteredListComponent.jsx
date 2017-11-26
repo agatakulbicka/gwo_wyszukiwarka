@@ -51,7 +51,7 @@ function renderBooksList(books, elementsOnPageNumber, currentPage, lastPageNumbe
 }
 
 function renderSinglePageElements(books, baseClassName) {
-    return (<div className={`${baseClassName}_main-content`}>
+    return (<div className={`${baseClassName}__main-content`}>
         {
             books.map((book, index) =>
                 <SingleBook

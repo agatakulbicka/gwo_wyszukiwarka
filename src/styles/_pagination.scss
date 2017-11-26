@@ -1,0 +1,39 @@
+@import "shared";
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &__prev,
+  &__next {
+    @include custom-button();
+    height: inherit;
+  }
+
+  &__page-numbers {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+
+    .page-number {
+      font-size: 1.2em;
+
+
+
+      &:hover {
+        color: $third-color;
+        cursor: pointer;
+      }
+
+      &-is-checked {
+        color: $first-color;
+        font-size: 1.4em;
+      }
+    }
+
+  }
+  .radio-button {
+    display: none
+  }
+}

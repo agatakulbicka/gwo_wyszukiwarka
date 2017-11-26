@@ -2,11 +2,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import {PAGINATION} from "../../constants/constants";
 
+const baseClassName = "pagination";
+
 function Pagination({getNextPage, getPrevPage, currentPage, lastPageNumber, changePageNumber}) {
     return (
-        <div>
+        <div className={baseClassName}>
             {renderPrevButton(currentPage, getPrevPage)}
-            {renderPaginationNumbers(lastPageNumber, changePageNumber, currentPage)}
+            {renderPaginationNumbers(lastPageNumber, changePageNumber, currentPage, baseClassName)}
             {renderNextButton(lastPageNumber, getNextPage, currentPage)}
         </div>
     );
@@ -14,7 +16,12 @@ function Pagination({getNextPage, getPrevPage, currentPage, lastPageNumber, chan
 
 function renderPrevButton(currentPage, getPrevPage) {
     return currentPage > 1 ? (
-            <button onClick={() => getPrevPage(currentPage)}>{PAGINATION.prev}</button>
+            <button
+                className={`${baseClassName}__prev`}
+                onClick={() => getPrevPage(currentPage)}
+            >
+                {PAGINATION.prev}
+            </button>
         ) : null;
 }
 
@@ -22,29 +29,29 @@ function renderNextButton(lastPageNumber, getNextPage, currentPage) {
     const description = currentPage === lastPageNumber - 1 ? PAGINATION.last : PAGINATION.next;
 
     return currentPage < lastPageNumber ? (
-            <button onClick={() => getNextPage(currentPage)}>{description}</button>
+            <button
+                className={`${baseClassName}__next`}
+                onClick={() => getNextPage(currentPage)}
+            >
+                {description}
+            </button>
         ) : null;
 }
 
-function renderPaginationNumbers(numberOfPages, changePageNumber, currentPage) {
+function renderPaginationNumbers(numberOfPages, changePageNumber, currentPage, baseClassName) {
 
-    return [...new Array(numberOfPages).keys()].map((number, index) => (
-        <label
-            key={`${number}-${index}`}
-            className="radio-label"
-        >
-            <input
-                className="radio-button"
-                type="radio"
-                id={`elements-${number}`}
-                name="pagesNumber"
-                value="pagesNumber"
-                onClick={() => changePageNumber(number+1)}
-                defaultChecked={number + 1 === currentPage}
-            />
-            {number+1}
-        </label>
-    ))
+    return <ul className={`${baseClassName}__page-numbers`}>{
+        [...new Array(numberOfPages).keys()].map((number, index) => (
+            <li
+                key={`${number}-${index}`}
+                className={`page-number${currentPage === number + 1 ? "-is-checked" : ""}`}
+                onClick={() => changePageNumber(number + 1)}
+            >
+                {number + 1}
+            </li>
+        ))
+    }
+    </ul>
 }
 
 Pagination.propTypes = ({
