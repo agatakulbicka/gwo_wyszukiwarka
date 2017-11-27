@@ -51,7 +51,6 @@ export const PAGINATION_BUTTON_NUMBER = [6,12,18];
 export const PAGINATION_BUTTONS_LABEL = "Liczba wyświetlanych wyników na stronie:";
 
 export const PAGINATION = {
-    next: "Następna strona",
-    prev: "Poprzednia strona",
-    last: "Ostatnia strona"
+    next: ">",
+    prev: "<"
 };

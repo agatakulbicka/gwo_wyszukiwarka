@@ -5,7 +5,6 @@ import {compose} from "redux";
 import {fetchBooksData} from "../actions/actions";
 import SearchBoxComponent from "./SearchBoxComponent";
 import {ScrollUpButton} from "../ScrollUpButton";
-import {FiltersDataContainer} from "../FiltersData";
 import {FilteredListContainer} from "../FilteredList";
 
 function SearchContainer({fetchBooksData}) {
@@ -13,7 +12,6 @@ function SearchContainer({fetchBooksData}) {
         <section className="search-container">
             <ScrollUpButton/>
             <SearchBoxComponent fetchBooksData={fetchBooksData}/>
-            <FiltersDataContainer baseClassName="data-filters"/>
             <FilteredListContainer/>
         </section>
     )

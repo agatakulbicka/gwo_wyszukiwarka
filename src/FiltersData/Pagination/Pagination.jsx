@@ -1,41 +1,36 @@
 import PropTypes from "prop-types";
 import React from "react";
+import classNames from "classnames";
 import {PAGINATION} from "../../constants/constants";
 
 const baseClassName = "pagination";
 
+const {prev, next} = PAGINATION;
+
+
 function Pagination({getNextPage, getPrevPage, currentPage, lastPageNumber, changePageNumber}) {
+    const classNamePrev = classNames(`${baseClassName}__prev`, {"is-hidden": currentPage === 1});
+    const classNameNext = classNames(`${baseClassName}__next`, {"is-hidden": currentPage === lastPageNumber});
     return (
         <div className={baseClassName}>
-            {renderPrevButton(currentPage, getPrevPage)}
+            {renderPaginationButton(currentPage, getPrevPage, classNamePrev, prev)}
             {renderPaginationNumbers(lastPageNumber, changePageNumber, currentPage, baseClassName)}
-            {renderNextButton(lastPageNumber, getNextPage, currentPage)}
+            {renderPaginationButton(currentPage, getNextPage, classNameNext, next)}
+
         </div>
     );
 }
 
-function renderPrevButton(currentPage, getPrevPage) {
-    return currentPage > 1 ? (
-            <button
-                className={`${baseClassName}__prev`}
-                onClick={() => getPrevPage(currentPage)}
-            >
-                {PAGINATION.prev}
-            </button>
-        ) : null;
-}
+function renderPaginationButton(currentPage, getPage, className,  arrow) {
+    return (
+        <button
+            className={className}
+            onClick={() => getPage(currentPage)}
+        >
+            {arrow}
+        </button>
+    );
 
-function renderNextButton(lastPageNumber, getNextPage, currentPage) {
-    const description = currentPage === lastPageNumber - 1 ? PAGINATION.last : PAGINATION.next;
-
-    return currentPage < lastPageNumber ? (
-            <button
-                className={`${baseClassName}__next`}
-                onClick={() => getNextPage(currentPage)}
-            >
-                {description}
-            </button>
-        ) : null;
 }
 
 function renderPaginationNumbers(numberOfPages, changePageNumber, currentPage, baseClassName) {

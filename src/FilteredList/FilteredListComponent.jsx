@@ -7,8 +7,7 @@ import {
     NO_SEARCHING_RESULTS
 } from "../constants/constants";
 import {SingleBook} from "./SingleBook";
-import {PaginationContainer} from "./Pagination";
-
+import {FiltersDataContainer} from "../FiltersData";
 function FilteredListComponent(props) {
     const {
         booksData,
@@ -24,7 +23,9 @@ function FilteredListComponent(props) {
             <section>{MAIN_TEXT_START}</section> :
             <section className={baseClassName}>
                 {renderSearchingResult(booksData)}
-                {renderPagination(isPaginationVisible)}
+                <FiltersDataContainer
+                    isPaginationVisible={isPaginationVisible}
+                />
                 {renderBooksList(
                     booksData,
                     elementsOnPageNumber,
@@ -70,11 +71,11 @@ function renderSearchingResult(booksData) {
         <div>{NO_SEARCHING_RESULTS}</div>
 }
 
-function renderPagination(isPaginationVisible) {
-    return isPaginationVisible ?
-        <PaginationContainer/> :
-        null;
-}
+// function renderPagination(isPaginationVisible) {
+//     return isPaginationVisible ?
+//         <PaginationContainer/> :
+//         null;
+// }
 
 FilteredListComponent.propTypes = {
     baseClassName: PropTypes.string,

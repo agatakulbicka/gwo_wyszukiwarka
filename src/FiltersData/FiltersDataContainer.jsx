@@ -4,26 +4,35 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {getNumberOfElementsOnPage} from "../actions";
 import RadioButtonsGroup from "./RadioButtonsGroup";
+import {PaginationContainer} from "./Pagination";
 
-function FiltersData({baseClassName = "data-filters", getNumberOfElementsOnPage}) {
+function FiltersData({baseClassName = "data-filters", getNumberOfElementsOnPage, isPaginationVisible}) {
 
     return (
-        <section>
+        <section className={baseClassName}>
             <RadioButtonsGroup
                 baseClassName={baseClassName}
                 getNumberOfElementsOnPage={getNumberOfElementsOnPage}
             />
+            {renderPagination(isPaginationVisible)}
         </section>
     );
+}
+
+function renderPagination(isPaginationVisible) {
+    return isPaginationVisible ?
+        <PaginationContainer/> :
+        null;
 }
 
 const mapDispatchToProps = dispatch => ({
     getNumberOfElementsOnPage: compose(dispatch, getNumberOfElementsOnPage)
 });
 
-RadioButtonsGroup.propsTypes = {
+FiltersData.propsTypes = {
     baseClassName: PropTypes.string,
-    getNumberOfElementsOnPage: PropTypes.func
+    getNumberOfElementsOnPage: PropTypes.func,
+    isPaginationVisible: PropTypes.bool
 };
 
 export default connect (

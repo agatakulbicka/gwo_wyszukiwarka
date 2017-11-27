@@ -3,11 +3,17 @@
 .data-filters {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: baseline;
+  padding: 0 10px;
   background-color: lighten($third-color, 15%);
   height: 100px;
-  font-size: 1.3em;
+  font-size: 1em;
+
+  @include respond-to(handhelds) {
+  flex-direction: column;
+  justify-content: center ;
+}
 
   @keyframes click-wave {
     0% {
