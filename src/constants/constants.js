@@ -39,7 +39,7 @@ export const SEARCH_BOOK_INPUT_TEXT = "🔍 Wpisz wyszukiwaną frazę...";
 
 export const BOOK_COVER_DESCRIPTION= "Okładka książki pd tytułem";
 
-export const TO_SHOP = "Przejdź do sklepu";
+export const TO_SHOP = "Przejdź do księgarni";
 
 export const SEARCH = "Szukaj";
 

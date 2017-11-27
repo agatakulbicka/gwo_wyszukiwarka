@@ -269,7 +269,8 @@
   .pagination__page-numbers {
     display: flex;
     flex-direction: row;
-    list-style-type: none; }
+    list-style-type: none;
+    -webkit-padding-start: 0; }
     .pagination__page-numbers .page-number {
       padding: 0 5px; }
       .pagination__page-numbers .page-number:hover {
