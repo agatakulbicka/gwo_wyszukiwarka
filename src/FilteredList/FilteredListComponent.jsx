@@ -38,8 +38,8 @@ function FilteredListComponent(props) {
 }
 
 function renderBooksList(books, elementsOnPageNumber, currentPage, lastPageNumber, baseClassName) {
-    const start = currentPage * elementsOnPageNumber - 1;
-    const end = (currentPage + 1) * elementsOnPageNumber - 1;
+    const start = elementsOnPageNumber * (currentPage - 1);
+    const end = elementsOnPageNumber * currentPage;
 
     const firstPageBooks = books.slice(0, elementsOnPageNumber);
     const currentPageBooks = books.slice(start, end);
@@ -70,12 +70,6 @@ function renderSearchingResult(booksData) {
         <div>{`${SEARCHING_RESULTS} ${booksData.length}`}</div> :
         <div>{NO_SEARCHING_RESULTS}</div>
 }
-
-// function renderPagination(isPaginationVisible) {
-//     return isPaginationVisible ?
-//         <PaginationContainer/> :
-//         null;
-// }
 
 FilteredListComponent.propTypes = {
     baseClassName: PropTypes.string,

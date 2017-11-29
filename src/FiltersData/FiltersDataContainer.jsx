@@ -6,12 +6,13 @@ import {getNumberOfElementsOnPage} from "../actions";
 import RadioButtonsGroup from "./RadioButtonsGroup";
 import {PaginationContainer} from "./Pagination";
 
-function FiltersData({baseClassName = "data-filters", getNumberOfElementsOnPage, isPaginationVisible}) {
+function FiltersData({baseClassName = "data-filters", getNumberOfElementsOnPage, isPaginationVisible, elementsOnPageNumber}) {
 
     return (
         <section className={baseClassName}>
             <RadioButtonsGroup
                 baseClassName={baseClassName}
+                elementsOnPageNumber={elementsOnPageNumber}
                 getNumberOfElementsOnPage={getNumberOfElementsOnPage}
             />
             {renderPagination(isPaginationVisible)}
@@ -25,17 +26,22 @@ function renderPagination(isPaginationVisible) {
         null;
 }
 
+const mapStateToProps = ({pagination}) => ({
+    elementsOnPageNumber: pagination.elementsOnPageNumber
+});
+
 const mapDispatchToProps = dispatch => ({
     getNumberOfElementsOnPage: compose(dispatch, getNumberOfElementsOnPage)
 });
 
 FiltersData.propsTypes = {
     baseClassName: PropTypes.string,
+    elementsOnPageNumber: PropTypes.string,
     getNumberOfElementsOnPage: PropTypes.func,
     isPaginationVisible: PropTypes.bool
 };
 
 export default connect (
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(FiltersData);

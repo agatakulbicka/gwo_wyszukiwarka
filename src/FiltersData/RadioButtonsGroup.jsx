@@ -5,7 +5,7 @@ import {
     PAGINATION_BUTTONS_LABEL
 } from "../constants/constants";
 
-function RadioButtonsGroup({baseClassName, getNumberOfElementsOnPage}) {
+function RadioButtonsGroup({baseClassName, elementsOnPageNumber, getNumberOfElementsOnPage}) {
     return (
         <form className={baseClassName}>
             <span className={`${baseClassName}_label`}>{PAGINATION_BUTTONS_LABEL}</span>
@@ -22,7 +22,7 @@ function RadioButtonsGroup({baseClassName, getNumberOfElementsOnPage}) {
                             name="pagesNumber"
                             value="pagesNumber"
                             onClick={() => getNumberOfElementsOnPage(singleButton)}
-                            defaultChecked={singleButton === 6}
+                            defaultChecked={singleButton === elementsOnPageNumber}
                         />
                         {singleButton}
                     </label>
@@ -34,6 +34,7 @@ function RadioButtonsGroup({baseClassName, getNumberOfElementsOnPage}) {
 
 RadioButtonsGroup.propsTypes = {
     baseClassName: PropTypes.string,
+    elementsOnPageNumber: PropTypes.string,
     getNumberOfElementsOnPage: PropTypes.func
 };
 
